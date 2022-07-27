@@ -9,5 +9,6 @@ const root = createRoot(rootElement);
 root.render(
   <StrictMode>
     <App />
+    <div className="btn btn-primary"> button </div>
   </StrictMode>
 );
