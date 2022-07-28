@@ -5,7 +5,18 @@ const User = () => {
   const [enteredage, setenteredage] = useState('');
 
   const addUserHandler = (event) => {
+    console.log('dsfs');
     event.preventDefault();
+
+    if (enteredUsername.trim().length === 0 || enteredage.trim().length === 0) {
+      return;
+    }
+
+    if (+enteredage < 1) {
+      return;
+    }
+
+    console.log(enteredUsername, enteredage);
     setenteredUsername('');
     setenteredage('');
   };
@@ -19,35 +30,37 @@ const User = () => {
   };
 
   return (
-    <div class="col-lg-offset-4">
+    <div className="col-lg-offset-4">
       <form onSubmit={addUserHandler}>
-        <div class="p-2  col-md-6">
-          <label class="p-1" htmlfor="username">
-            {' '}
-            Username{' '}
+        <div className="p-2  col-md-6">
+          <label className="p-1" htmlFor="username">
+            Usernamew
           </label>
           <input
-            class="form-control"
+            className="form-control"
             id="username"
             type="text"
-            onchange={userNameChangeHandler}
+            onChange={userNameChangeHandler}
+            value={enteredUsername}
           />
         </div>
 
-        <div class="p-2 col-md-6 ">
-          <label class="p-1" htmlfor="age">
-            {' '}
-            Age{' '}
+        <div className="p-2 col-md-6 ">
+          <label className="p-1" htmlFor="age">
+            Age
           </label>
           <input
-            class="form-control"
+            className="form-control"
             id="age"
-            type="text"
-            onchange={ageHandler}
+            type="number"
+            onChange={ageHandler}
+            value={enteredage}
           />
         </div>
 
-        <div className="btn btn-primary"> button </div>
+        <button type="submit" className="btn btn-primary"> submit
+       </button>
+          
       </form>
     </div>
   );
