@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-const User = () => {
+const AddUser = () => {
   const [enteredUsername, setenteredUsername] = useState('');
   const [enteredage, setenteredage] = useState('');
 
   const addUserHandler = (event) => {
-    console.log('dsfs');
+
     event.preventDefault();
 
     if (enteredUsername.trim().length === 0 || enteredage.trim().length === 0) {
@@ -16,7 +16,7 @@ const User = () => {
       return;
     }
 
-    console.log(enteredUsername, enteredage);
+    props.onAddUser(enteredUsername, enteredage);
     setenteredUsername('');
     setenteredage('');
   };
@@ -58,12 +58,13 @@ const User = () => {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary"> submit
-       </button>
-          
+        <button type="submit" className="btn btn-primary">
+       
+          submit
+        </button>
       </form>
     </div>
   );
 };
 
-export default User;
+export default AddUser;
